@@ -1,12 +1,14 @@
 package com.example.movietrackerapp.view
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.movietrackerapp.R
+import com.example.movietrackerapp.model.remote.service.response.MovieResponse
+import com.example.movietrackerapp.utils.ResponseWrapper
 import com.example.movietrackerapp.viewmodel.MovieServiceViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +17,36 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setStateObservers()
+        viewModel.onGetRecommendations()
+
+    }
+
+    private fun setStateObservers() {
+        viewModel.movieRecommendations.observe(this){ state->
+            when(state){
+                is ResponseWrapper.Error -> setErrorUI(state.message)
+                is ResponseWrapper.Loading -> setLoadingUI()
+                is ResponseWrapper.Success -> setSuccessStateUI(state.data)
+
+            }
+
         }
     }
+
+    private fun setLoadingUI() {
+        Toast.makeText(this,"Loading...",Toast.LENGTH_LONG).show()
+    }
+
+    private fun setErrorUI(message: String) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+    }
+
+    private fun setSuccessStateUI(data: MovieResponse) {
+        val movies = data.results
+        movies.forEach { it->
+            Log.d("TAG","${it.title}")
+        }
+    }
+
 }
