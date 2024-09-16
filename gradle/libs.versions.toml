@@ -2,6 +2,7 @@
 agp = "8.5.0"
 converterGson = "2.9.0'"
 converterGsonVersion = "2.9.0"
+glide = "4.14.2"
 gson = "2.11.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -22,6 +23,7 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 converter-gson-v2110 = { module = "com.squareup.retrofit2:converter-gson", version.ref = "squareupConverterGson" }
 converter-gson-v290 = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGsonVersion" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

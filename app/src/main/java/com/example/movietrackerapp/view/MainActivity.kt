@@ -1,17 +1,20 @@
 package com.example.movietrackerapp.view
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.example.movietrackerapp.R
 import com.example.movietrackerapp.model.remote.service.response.MovieResponse
 import com.example.movietrackerapp.utils.ResponseWrapper
+import com.example.movietrackerapp.view.adapter.MovieAdapter
 import com.example.movietrackerapp.viewmodel.MovieServiceViewModel
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var adapter: MovieAdapter
+    private lateinit var recyclerView: RecyclerView
     private val viewModel: MovieServiceViewModel by viewModels { MovieServiceViewModel.Factory }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +47,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setSuccessStateUI(data: MovieResponse) {
         val movies = data.results
-        movies.forEach { it->
-            Log.d("TAG","${it.title}")
-        }
+        recyclerView = findViewById(R.id.recycler_view)
+        adapter = MovieAdapter(movies)
+        recyclerView.adapter = adapter
     }
 
 }
