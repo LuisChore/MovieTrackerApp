@@ -42,8 +42,12 @@ The **Movie Tracker App** is an Android project that fetches and displays a list
 
 <!-- Insert your screenshots here -->
 
-![Movie List](path_to_screenshot_1)
-![Movie Details](path_to_screenshot_2)
+<img src="https://github.com/user-attachments/assets/33fa1e2e-d1a3-4175-8fcb-d1a02f463899" width="240">
+
+<img src="https://github.com/user-attachments/assets/b623d68b-9956-47a9-a8e7-91ce4c907ee2" width="240">
+
+<img src="https://github.com/user-attachments/assets/a3044916-87a6-4749-94a6-c313f7b38258" width="240">
+
 
 ## Key Learnings
 
