@@ -6,7 +6,7 @@ class App : Application(){
     lateinit var appContainer: AppContainer
     override fun onCreate() {
         super.onCreate()
-        appContainer = AppContainer()
+        appContainer = AppContainer(applicationContext)
     }
 
 }

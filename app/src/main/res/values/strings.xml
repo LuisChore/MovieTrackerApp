@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MovieTrackerApp</string>
+    <string name="api_key">XXXXXXX</string>
 </resources>

@@ -33,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +49,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson.v2110)
+    implementation(libs.gson)
+    
+
+    //ViewModelScope
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //Glide
+    implementation(libs.glide)
+    // Skip this if you don't want to use integration libraries or configure Glide.
+    // annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 }
